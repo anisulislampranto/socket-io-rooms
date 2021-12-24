@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hello</h1>
+    <h1 id="message"></h1>
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io();
+
+        socket.on('meeting', (data) => {
+            document.getElementById('message').innerText = data;
+        })
+
+    </script>
 </body>
 </html>

@@ -15,6 +15,17 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log('a user connected');
 
+  socket.join('kitchen-room');
+  io.sockets.in('kitchen-room').emit('cooking', 'vaat daal hochche');
+  io.sockets.in('kitchen-room').emit('cleaning', 'thala bashon dhoya hochcche');
+
+
+
+  socket.join('bed-room');
+  io.sockets.in('bed-room').emit('sleeping', 'ghumai shobai chupchap');
+  io.sockets.in('bed-room').emit('meeting', 'bed room meeting er jayga na');
+
+
 
 
 
