@@ -16,7 +16,7 @@
     <script>
         let socket = io();
 
-        socket.on('meeting', (data) => {
+        socket.on('cooking', (data) => {
             document.getElementById('message').innerText = data;
         })
 

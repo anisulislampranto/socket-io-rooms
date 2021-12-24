@@ -16,13 +16,15 @@ io.on('connection', (socket) => {
   console.log('a user connected');
 
   socket.join('kitchen-room');
-  io.sockets.in('kitchen-room').emit('cooking', 'vaat daal hochche');
+  const kitchenSize = io.sockets.adapter.rooms.get('kitchen-room').size;
+  io.sockets.in('kitchen-room').emit('cooking', 'vaat daal hochche' + kitchenSize);
   io.sockets.in('kitchen-room').emit('cleaning', 'thala bashon dhoya hochcche');
 
 
 
   socket.join('bed-room');
-  io.sockets.in('bed-room').emit('sleeping', 'ghumai shobai chupchap');
+  const bedroomSize = io.sockets.adapter.rooms.get('bed-room').size;
+  io.sockets.in('bed-room').emit('sleeping', 'ghumai shobai chupchap' + bedroomSize);
   io.sockets.in('bed-room').emit('meeting', 'bed room meeting er jayga na');
 
 
